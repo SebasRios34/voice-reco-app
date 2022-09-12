@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Recognition Voice App</title>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <h1>Recognized Voice Test App V.1 by <a href="https://github.com/SebasRios34?tab=repositories">SebasRios34</a> </h1>
+      <p>Press "Start Listening!" and being to talk. My code will detect your words and when you stop talking it will display your own words!</p>
+      <p>After you're finished, you should be able to copy your words into the clipboard</p>
+
+      <div class="optionContainer">
+        <button id="startListeningButton" class="startListeningButton">
+          Start Listening!
+        </button>
+        <p>
+          <h3 id="timer" class="timer">Timer -</h3> 
+          <div class="timeContainer">
+            <h3 id="seconds">00</h3><h3>:</h3><h3 id="tens">00</h3>
+          </div>
+        </p>
+      </div>
+  
+      <div class="textContainer">
+        <textarea id="recognizedContent" class="recognizedContent" placeholder="Recognized Text"></textarea>
+  
+        <button id="copyTextButton" class="copyTextButton">
+          Copy Recognized Text
+        </button>
+      </div>
+
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

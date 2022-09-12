@@ -1,0 +1,117 @@
+@keyframes color {
+  0% {
+    background: #33cccc;
+  }
+  20% {
+    background: #33cc36;
+  }
+  40% {
+    background: #b8cc33;
+  }
+  60% {
+    background: #fcca00;
+  }
+  80% {
+    background: #33cc36;
+  }
+  100% {
+    background: #33cccc;
+  }
+}
+
+$colors: (
+  startListeningButton: #8fc866,
+  copyTextButton: #c82b23,
+);
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: #{$color};
+    --hover: #{adjust-hue($color, 45deg)};
+  }
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover);
+    color: black;
+  }
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+body {
+  height: 100%;
+
+  background: #33cccc;
+  animation: color 9s infinite linear;
+  text-align: center;
+  padding: 2em;
+
+  .mainContainer {
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 600px;
+    width: auto;
+    padding: 0;
+    margin: 0;
+
+    .optionContainer {
+      width: auto;
+
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+
+      .startListeningButton:hover,
+      .startListeningButton:focus {
+        box-shadow: inset 10.5em 0 0 0 var(--hover);
+      }
+
+      .timeContainer {
+        display: flex;
+      }
+    }
+
+    .textContainer {
+      width: auto;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+
+      .copyTextButton {
+        display: none;
+      }
+
+      .copyTextButton:hover,
+      .copyTextButton:focus {
+        box-shadow: inset -7.5em 0 0 0 var(--hover),
+          inset 7.5em 0 0 0 var(--hover);
+      }
+
+      @keyframes copyTextButton {
+        0% {
+          box-shadow: 0 0 0 0 var(--hover);
+        }
+      }
+    }
+  }
+}
